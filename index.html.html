@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cents & Sense | Real Life. Real Finds. Real Budgets.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF7F2;
+    --warm-white: #FDF9F4;
+    --tan: #EDE0CC;
+    --terracotta: #C4714A;
+    --terracotta-light: #E8967A;
+    --sage: #6B8F71;
+    --sage-light: #EBF2EC;
+    --brown: #5C3D2E;
+    --muted: #9A8A7A;
+    --border: #E8DDD0;
+    --card: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--brown);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--brown);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--terracotta); font-style: italic; }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--terracotta); }
+
+  /* HERO */
+  .hero {
+    background: var(--warm-white);
+    padding: 80px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: -80px;
+    width: 300px; height: 300px;
+    background: var(--tan);
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: var(--sage-light);
+    border-radius: 50%;
+    opacity: 0.6;
+  }
+
+  .hero-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: var(--sage-light);
+    color: var(--sage);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: var(--brown);
+  }
+
+  .hero h1 em {
+    color: var(--terracotta);
+    font-style: italic;
+  }
+
+  .hero p {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 32px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--terracotta);
+    color: white;
+  }
+
+  .btn-primary:hover { background: #B05E38; }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--terracotta);
+    border: 1.5px solid var(--terracotta);
+  }
+
+  .btn-secondary:hover { background: var(--terracotta); color: white; }
+
+  /* BRAND PILLS */
+  .brand-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+
+  .brand-pill {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 24px;
+    text-align: center;
+    min-width: 160px;
+  }
+
+  .brand-pill .pill-icon { font-size: 24px; margin-bottom: 6px; }
+
+  .brand-pill h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  .brand-pill p { font-size: 12px; color: var(--muted); }
+
+  /* CONTAINER */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* SECTION */
+  .section { padding: 64px 0; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .section-tag {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 400;
+    color: var(--brown);
+  }
+
+  .section-header h2 em { color: var(--terracotta); font-style: italic; }
+
+  .section-header p {
+    font-size: 15px;
+    color: var(--muted);
+    margin-top: 10px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* BLOG CARDS */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .blog-card {
+    background: var(--card);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .blog-card:hover {
+    box-shadow: 0 8px 32px rgba(92,61,46,0.1);
+    transform: translateY(-2px);
+  }
+
+  .blog-thumb {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    position: relative;
+  }
+
+  .blog-thumb.terracotta { background: #FDF0EB; }
+  .blog-thumb.sage { background: var(--sage-light); }
+  .blog-thumb.tan { background: #FAF3E8; }
+  .blog-thumb.lavender { background: #F0EEF9; }
+  .blog-thumb.blush { background: #FDF0F0; }
+  .blog-thumb.butter { background: #FBF8EE; }
+
+  .blog-category {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: white;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-weight: 500;
+  }
+
+  .blog-body { padding: 20px; }
+
+  .blog-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.3;
+    color: var(--brown);
+  }
+
+  .blog-body p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 14px;
+    line-height: 1.6;
+  }
+
+  .blog-link {
+    font-size: 12px;
+    color: var(--terracotta);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .blog-link:hover { text-decoration: underline; }
+
+  /* SHOP / FINDS GRID */
+  .finds-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .find-card {
+    background: var(--card);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: box-shadow 0.2s, transform 0.2s;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .find-card:hover {
+    box-shadow: 0 6px 24px rgba(92,61,46,0.1);
+    transform: translateY(-2px);
+  }
+
+  .find-thumb {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+  }
+
+  .find-thumb.a { background: #FDF0EB; }
+  .find-thumb.b { background: var(--sage-light); }
+  .find-thumb.c { background: #FAF3E8; }
+  .find-thumb.d { background: #FDF0F0; }
+  .find-thumb.e { background: #F0EEF9; }
+  .find-thumb.f { background: #FBF8EE; }
+  .find-thumb.g { background: #EEF4FF; }
+  .find-thumb.h { background: #FFF3EE; }
+
+  .find-body { padding: 14px; }
+
+  .find-cat {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .find-body h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--brown);
+    line-height: 1.3;
+  }
+
+  .find-price {
+    font-size: 13px;
+    color: var(--terracotta);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .find-btn {
+    display: block;
+    text-align: center;
+    background: var(--terracotta);
+    color: white;
+    border-radius: 20px;
+    padding: 7px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .find-btn:hover { background: #B05E38; }
+
+  /* CATEGORIES */
+  .cat-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  .cat-btn {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .cat-btn.active, .cat-btn:hover {
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+    color: white;
+  }
+
+  /* YOUTUBE */
+  .yt-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .yt-card {
+    background: var(--card);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: box-shadow 0.2s;
+  }
+
+  .yt-card:hover { box-shadow: 0 6px 24px rgba(92,61,46,0.1); }
+
+  .yt-thumb {
+    height: 160px;
+    background: #1A1A1A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .yt-thumb .play {
+    width: 48px;
+    height: 48px;
+    background: #FF0000;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    transition: transform 0.2s;
+  }
+
+  .yt-card:hover .play { transform: scale(1.1); }
+
+  .yt-thumb .duration {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .yt-thumb .yt-emoji {
+    position: absolute;
+    font-size: 36px;
+    opacity: 0.15;
+  }
+
+  .yt-body { padding: 16px; }
+
+  .yt-body h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--brown);
+    line-height: 1.3;
+  }
+
+  .yt-meta {
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    gap: 12px;
+  }
+
+  /* ABOUT */
+  .about-section {
+    background: var(--warm-white);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 24px;
+  }
+
+  .about-visual {
+    background: var(--tan);
+    border-radius: 20px;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-visual::before {
+    content: '';
+    position: absolute;
+    bottom: -30px; right: -30px;
+    width: 120px; height: 120px;
+    background: var(--terracotta);
+    border-radius: 50%;
+    opacity: 0.15;
+  }
+
+  .about-text .eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .about-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .about-text h2 em { color: var(--terracotta); font-style: italic; }
+
+  .about-text p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 12px;
+    line-height: 1.8;
+  }
+
+  /* NEWSLETTER */
+  .newsletter {
+    background: var(--brown);
+    color: white;
+    text-align: center;
+    padding: 56px 24px;
+  }
+
+  .newsletter h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  .newsletter h2 em { color: var(--terracotta-light); font-style: italic; }
+
+  .newsletter p {
+    font-size: 14px;
+    opacity: 0.6;
+    margin-bottom: 24px;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .newsletter-form input {
+    flex: 1;
+    padding: 12px 18px;
+    border-radius: 30px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    outline: none;
+  }
+
+  .newsletter-form input::placeholder { opacity: 0.5; }
+
+  .newsletter-form button {
+    background: var(--terracotta);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 24px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    white-space: nowrap;
+  }
+
+  /* DISCLOSURE */
+  .disclosure {
+    background: var(--sage-light);
+    border-top: 1px solid #C5D9C8;
+    padding: 16px 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--sage);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--brown);
+    color: white;
+    padding: 40px 24px 24px;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 32px;
+  }
+
+  .footer-brand h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .footer-brand h3 span { color: var(--terracotta-light); font-style: italic; }
+
+  .footer-brand p { font-size: 13px; opacity: 0.5; line-height: 1.7; }
+
+  .footer-col h4 {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col li {
+    margin-bottom: 8px;
+    font-size: 13px;
+    opacity: 0.7;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .footer-col li:hover { opacity: 1; }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    opacity: 0.4;
+  }
+
+  /* DIVIDER */
+  .section-divider {
+    text-align: center;
+    margin: 0;
+    position: relative;
+  }
+
+  .section-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0; right: 0;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .section-divider span {
+    background: var(--cream);
+    padding: 0 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--tan);
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    .blog-grid { grid-template-columns: 1fr; }
+    .finds-grid { grid-template-columns: 1fr 1fr; }
+    .yt-grid { grid-template-columns: 1fr; }
+    .about-inner { grid-template-columns: 1fr; }
+    .about-visual { height: 200px; }
+    .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    nav { padding: 0 16px; }
+    .nav-links { gap: 16px; }
+    .nav-links li:nth-child(n+3) { display: none; }
+    .newsletter-form { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Cents <span>& Sense</span></a>
+  <ul class="nav-links">
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#finds">Shop Finds</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Real Life · Real Finds · Real Budgets</div>
+    <h1>Smart spending for your<br><em>home, family & life</em></h1>
+    <p>Budget-friendly finds for real parents — from the nursery to the kitchen and everything in between.</p>
+    <div class="hero-btns">
+      <a href="#finds" class="btn btn-primary">Shop My Finds</a>
+      <a href="#blog" class="btn btn-secondary">Read the Blog</a>
+    </div>
+    <div class="brand-row">
+      <div class="brand-pill">
+        <div class="pill-icon">💰</div>
+        <h3>Cents & Sense</h3>
+        <p>Budgeting & finance tips</p>
+      </div>
+      <div class="brand-pill">
+        <div class="pill-icon">🍼🍳</div>
+        <h3>Cribs & Kitchens</h3>
+        <p>Amazon finds for real homes</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="section" id="blog">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">From the Blog</div>
+      <h2>Real Tips. <em>Real Savings.</em></h2>
+      <p>Honest advice on budgeting, baby gear, and building a home you love without breaking the bank.</p>
+    </div>
+
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="blog-thumb terracotta">
+          🍼
+          <span class="blog-category">Baby</span>
+        </div>
+        <div class="blog-body">
+          <h3>10 Amazon Baby Finds I Actually Use Every Single Day</h3>
+          <p>As a real parent, these are the products that genuinely made our life easier — all under $40.</p>
+          <a href="#" class="blog-link">Read More →</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-thumb sage">
+          💰
+          <span class="blog-category">Finance</span>
+        </div>
+        <div class="blog-body">
+          <h3>How We Cut Our Monthly Spending by $400 Without Feeling It</h3>
+          <p>The exact budget categories we trimmed and the free tools we used to track everything.</p>
+          <a href="#" class="blog-link">Read More →</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-thumb tan">
+          🍳
+          <span class="blog-category">Kitchen</span>
+        </div>
+        <div class="blog-body">
+          <h3>15 Kitchen Gadgets Under $30 That Are Actually Worth It</h3>
+          <p>Tested and approved — the Amazon kitchen finds that earn their counter space.</p>
+          <a href="#" class="blog-link">Read More →</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-thumb lavender">
+          📊
+          <span class="blog-category">Finance</span>
+        </div>
+        <div class="blog-body">
+          <h3>The Beginner's Budget: A Simple System That Actually Sticks</h3>
+          <p>No complicated spreadsheets — just an honest system for people who hate budgeting.</p>
+          <a href="#" class="blog-link">Read More →</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-thumb blush">
+          🏠
+          <span class="blog-category">Home</span>
+        </div>
+        <div class="blog-body">
+          <h3>I Decorated My Living Room for Under $200 — Here's Everything I Bought</h3>
+          <p>Every single item linked — all from Amazon, all affordable, all actually pretty.</p>
+          <a href="#" class="blog-link">Read More →</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-thumb butter">
+          🛒
+          <span class="blog-category">Savings</span>
+        </div>
+        <div class="blog-body">
+          <h3>How to Shop Amazon Smarter: The Tricks I Use Every Time</h3>
+          <p>Price tracking, coupon stacking, and the search hacks that save me money every month.</p>
+          <a href="#" class="blog-link">Read More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINDS / SHOP -->
+<section class="section" id="finds" style="background: var(--warm-white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Amazon Finds</div>
+      <h2>Shop My <em>Favourite Finds</em></h2>
+      <p>Everything I actually use and love — all linked directly to Amazon. Prices updated regularly.</p>
+    </div>
+
+    <div class="cat-row">
+      <button class="cat-btn active">All Finds</button>
+      <button class="cat-btn">👶 Baby</button>
+      <button class="cat-btn">🍳 Kitchen</button>
+      <button class="cat-btn">🏠 Home</button>
+      <button class="cat-btn">✨ Under $25</button>
+    </div>
+
+    <div class="finds-grid">
+      <a href="#" class="find-card">
+        <div class="find-thumb a">🍼</div>
+        <div class="find-body">
+          <div class="find-cat">👶 Baby</div>
+          <h4>White Noise Machine</h4>
+          <div class="find-price">~$35</div>
+          <span class="find-btn">Shop on Amazon →</span>
+        </div>
+      </a>
+
+      <a href="#" class="find-card">
+        <div class="find-thumb b">🥣</div>
+        <div class="find-body">
+          <div class="find-cat">👶 Baby</div>
+          <h4>Silicone Bib Set</h4>
+          <div class="find-price">~$22</div>
+          <span class="find-btn">Shop on Amazon →</span>
+        </div>
+      </a>
+
+      <a href="#" class="find-card">
+        <div class="find-thumb c">☕</div>
+        <div class="find-body">
+          <div class="find-cat">🍳 Kitchen</div>
+          <h4>Coffee Station Organiser</h4>
+          <div class="find-price">~$38</div>
+          <span class="find-btn">Shop on Amazon →</span>
+        </div>
+      </a>
+
+      <a href="#" class="find-card">
+        <div class="find-thumb d">🗂️</div>
+        <div class="find-body">
+          <div class="find-cat">🏠 Home</div>
+          <h4>Fridge Organiser Bins</h4>
+          <div class="find-price">~$28</div>
+          <span class="find-btn">Shop on Amazon →</span>
+        </div>
+      </a>
+
+      <a href="#" class="find-card">
+        <div class="find-thumb e">🌙</div>
+        <div class="find-body">
+          <div class="find-cat">👶 Baby</div>
+          <h4>Nursery Night Light</h4>
+          <div class="find-price">~$24</div>
+          <span class="find-btn">Shop on Amazon →</span>
+        </div>
+      </a>
+
+      <a href="#" class="find-card">
+        <div class="find-thumb f">🍳</div>
+        <div class="find-body">
+          <div class="find-cat">🍳 Kitchen</div>
+          <h4>Drawer Organiser Set</h4>
+          <div class="find-price">~$26</div>
+          <span class="find-btn">Shop on Amazon →</span>
+        </div>
+      </a>
+
+      <a href="#" class="find-card">
+        <div class="find-thumb g">🛁</div>
+        <div class="find-body">
+          <div class="find-cat">👶 Baby</div>
+          <h4>Baby Bath Seat</h4>
+          <div class="find-price">~$32</div>
+          <span class="find-btn">Shop on Amazon →</span>
+        </div>
+      </a>
+
+      <a href="#" class="find-card">
+        <div class="find-thumb h">✨</div>
+        <div class="find-body">
+          <div class="find-cat">🏠 Home</div>
+          <h4>Canister Set</h4>
+          <div class="find-price">~$34</div>
+          <span class="find-btn">Shop on Amazon →</span>
+        </div>
+      </a>
+    </div>
+
+    <div style="text-align:center; margin-top:32px;">
+      <a href="#" class="btn btn-secondary">View All Finds</a>
+    </div>
+  </div>
+</section>
+
+<!-- YOUTUBE -->
+<section class="section" id="videos">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Latest Videos</div>
+      <h2>Watch on <em>YouTube</em></h2>
+      <p>Real talk about money, finds, and family life. New videos every week.</p>
+    </div>
+
+    <div class="yt-grid">
+      <div class="yt-card">
+        <div class="yt-thumb">
+          <span class="yt-emoji">💰</span>
+          <div class="play">▶</div>
+          <span class="duration">8:24</span>
+        </div>
+        <div class="yt-body">
+          <h4>How I Budget as a Parent (The System That Actually Works)</h4>
+          <div class="yt-meta">
+            <span>Cents & Sense</span>
+            <span>2.1K views</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="yt-card">
+        <div class="yt-thumb">
+          <span class="yt-emoji">🍼</span>
+          <div class="play">▶</div>
+          <span class="duration">6:12</span>
+        </div>
+        <div class="yt-body">
+          <h4>Amazon Baby Haul: Everything We Actually Use</h4>
+          <div class="yt-meta">
+            <span>Cribs & Kitchens</span>
+            <span>1.4K views</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="yt-card">
+        <div class="yt-thumb">
+          <span class="yt-emoji">🍳</span>
+          <div class="play">▶</div>
+          <span class="duration">10:05</span>
+        </div>
+        <div class="yt-body">
+          <h4>Kitchen Organization on a Budget — Full Transformation</h4>
+          <div class="yt-meta">
+            <span>Cribs & Kitchens</span>
+            <span>3.2K views</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:32px;">
+      <a href="https://youtube.com" target="_blank" class="btn btn-primary">Subscribe on YouTube</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div class="about-visual">🏡</div>
+    <div class="about-text">
+      <div class="eyebrow">About Me</div>
+      <h2>A real parent,<br><em>keeping it honest</em></h2>
+      <p>Hi! I'm a real parent navigating the same things you are — trying to make smart money decisions while building a home that feels good to live in.</p>
+      <p>Cents & Sense is where I share honest budgeting advice and the Amazon finds I actually use — for the nursery, the kitchen, and everything in between. No fluff, no products I don't believe in.</p>
+      <p>Everything I recommend is something I'd buy with my own money — because usually I did.</p>
+      <a href="#" class="btn btn-primary" style="margin-top:8px;">Read My Story</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <h2>Get the <em>best finds</em> in your inbox</h2>
+  <p>Weekly roundups of the best Amazon deals, budget tips, and new content. No spam, ever.</p>
+  <div class="newsletter-form">
+    <input type="email" placeholder="your@email.com">
+    <button>Subscribe</button>
+  </div>
+</section>
+
+<!-- DISCLOSURE -->
+<div class="disclosure">
+  <strong>Affiliate Disclosure:</strong> This site contains affiliate links. If you click and purchase, I may earn a small commission at no extra cost to you. I only recommend products I genuinely use and love. Thank you for supporting Cents & Sense!
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Cents <span>& Sense</span></h3>
+      <p>Real budgeting advice and honest Amazon finds for parents and home lovers. Because smart spending is self care.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li>Blog</li>
+        <li>Amazon Finds</li>
+        <li>YouTube Videos</li>
+        <li>About</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Follow</h4>
+      <ul>
+        <li>TikTok — @cribsandkitchens</li>
+        <li>YouTube — Cents & Sense</li>
+        <li>Instagram</li>
+        <li>Pinterest</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Cents & Sense. All rights reserved.</span>
+    <span>Privacy Policy · Affiliate Disclosure</span>
+  </div>
+</footer>
+
+</body>
+</html>
